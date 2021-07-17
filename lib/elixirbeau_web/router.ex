@@ -17,6 +17,7 @@ defmodule ElixirbeauWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/dogs", DogsController
   end
 
   # Other scopes may use custom stacks.

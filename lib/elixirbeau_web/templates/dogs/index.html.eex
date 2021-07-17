@@ -1,0 +1,32 @@
+<h1>Listing Dog</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Birthdate</th>
+      <th>Is best dog</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for dogs <- @dog do %>
+    <tr>
+      <td><%= dogs.name %></td>
+      <td><%= dogs.age %></td>
+      <td><%= dogs.birthdate %></td>
+      <td><%= dogs.is_best_dog %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.dogs_path(@conn, :show, dogs) %></span>
+        <span><%= link "Edit", to: Routes.dogs_path(@conn, :edit, dogs) %></span>
+        <span><%= link "Delete", to: Routes.dogs_path(@conn, :delete, dogs), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Dogs", to: Routes.dogs_path(@conn, :new) %></span>
